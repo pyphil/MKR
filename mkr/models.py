@@ -13,8 +13,8 @@ class Fach(models.Model):
 
 class Kompetenzkarte(models.Model):
     KATEGORIE_CHOICES = [
-        ('11', 'Medienausstattung'),
-        ('12', 'Digitale Werkzeuge'),
+        ('11', '1.1 Medienausstattung'),
+        ('12', '1.2 Digitale Werkzeuge'),
     ]
     kategorie = models.CharField(max_length=2, choices=KATEGORIE_CHOICES)
     fach = models.ForeignKey(Fach, on_delete=models.DO_NOTHING)

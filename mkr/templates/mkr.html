@@ -174,6 +174,64 @@
                       beachten
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "12" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> Computer - Hard- und Software</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> schulinteres Curriculum</p>
+                              <p><b>Medienkompetenz:</b> Unterschied zwischen Hard- & Software erläutern; wesentliche Hardware-Komponenten erläutern</p>
+                              <p><b>Technik:</b> schuleigene PCs</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                  <th><small><small>ist für alle</small></small></th>
+                                  <td class="text-center"><i class="bi bi-check-lg"></td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                  <th ><small><small>Teilgruppe</small></small></th>
+                                  <td></td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                  <th><small><small>Pflicht</small></small></th>
+                                  <td class="text-center"><i class="bi bi-check-lg"></i></td>
+                                  </tr>
+                                  <tr class="table-success">
+                                  <th ><small><small>Empfehlung</small></small></th>
+                                  <td></td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                  <th><small><small>wird durchgeführt</small></small></th>
+                                  <td class="text-center"><i class="bi bi-check-lg"></td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                  <th ><small><small>Planung/Umsetzung</small></small></th>
+                                  <td class="text-center"> </td>
+                                  </tr>
+
+                                </tbody>
+                                </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
+
                 </div>
               </div>
             </div>

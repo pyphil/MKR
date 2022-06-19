@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import KompetenzkarteForm
+from .models import Kompetenzkarte
 
 
 def home(request):
-    return render(request, 'mkr.html', {})
+    mkr_objects = Kompetenzkarte.objects.all()
+    return render(request, 'mkr.html', {'mkr_objects': mkr_objects})
+
 
 def karte(request):
     if request.method == 'GET':
