@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from django import forms
 from .models import Kompetenzkarte
+from django.utils.safestring import mark_safe
 
 
 class KompetenzkarteForm(ModelForm):
@@ -19,16 +20,16 @@ class KompetenzkarteForm(ModelForm):
             'durchf_planung',
         )
         labels = {
-            'kategorie': 'Kategorie im Medienkompetenzrahmen:',
-            'fach': 'Fach:',
-            'jgst': 'Jahrgangsstufe:',
-            'vorhaben': 'Unterrichtsvorhaben (Titel):',
-            'info': 'Detaillierte Informationen befinden sich hier (z.B. schulinternes Curriculum):',
-            'medienkompetenz': 'Medienkompetenz:',
-            'technik': 'Technik:',
-            'alle_teil': 'Das Vorhaben ist...',
-            'pflicht_empf': 'Das Vorhaben ist...',
-            'durchf_planung': 'Das Vorhaben ist...',
+            'kategorie': mark_safe('<strong>Kategorie im Medienkompetenzrahmen:</strong>'),
+            'fach': mark_safe('<strong>Fach:</strong>'),
+            'jgst': mark_safe('<strong>Jahrgangsstufe:</strong>'),
+            'vorhaben': mark_safe('<strong>Unterrichtsvorhaben (Titel):</strong>'),
+            'info': mark_safe('<strong>Detaillierte Informationen befinden sich hier (z.B. schulinternes Curriculum):</strong>'),
+            'medienkompetenz': mark_safe('<strong>Medienkompetenz:</strong>'),
+            'technik': mark_safe('<strong>Technik:</strong>'),
+            'alle_teil': mark_safe('<strong>Das Vorhaben ist...</strong>'),
+            'pflicht_empf': mark_safe('<strong>Das Vorhaben ist...</strong>'),
+            'durchf_planung': mark_safe('<strong>Das Vorhaben ist...</strong>'),
         }
         widgets = {
             'kategorie': forms.Select(attrs={'class': 'form-select'}),
@@ -36,7 +37,7 @@ class KompetenzkarteForm(ModelForm):
             'jgst': forms.Select(attrs={'class': 'form-select'}),
             'vorhaben': forms.TextInput(attrs={'class': 'form-control'}),
             'info': forms.TextInput(attrs={'class': 'form-control'}),
-            'medienkompetenz': forms.Textarea(attrs={'class': 'form-control'}),
+            'medienkompetenz': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
             'technik': forms.TextInput(attrs={'class': 'form-control'}),
             'alle_teil': forms.RadioSelect(),
             'pflicht_empf': forms.RadioSelect(),
