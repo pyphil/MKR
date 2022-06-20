@@ -47,73 +47,168 @@
                     </small>
                   </div>
 
-                  <div class="card mb-2 shadow" style="background-color: #8d96e836">
-                    <h6 class="card-header" >Informatik • Jgst. 6</h6>
-                    <div class="card-body px-2">
-                      <small>
-                        <p><b>Unterrichtsvorhaben:</b> Computer - Hard- und Software</p>
-                        <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> schulinteres Curriculum</p>
-                          <p><b>Medienkompetenz:</b> Unterschied zwischen Hard- & Software erläutern; wesentliche Hardware-Komponenten erläutern</p>
-                          <p><b>Technik:</b> schuleigene PCs</p>
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "11" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
 
-                          <table class="table table-bordered">
-                            <thead>
-                              <tr>
-                                <th scope="col"><small>Das Vorhaben...</small></th>
-                              </tr>
-                            </thead>
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
 
-                            <tbody>
-                              <tr class="table-primary">
-                              <th><small><small>ist für alle</small></small></th>
-                              <td class="text-center"><i class="bi bi-check-lg"></td>
-                              </tr>
-                              <tr class="table-primary">
-                              <th ><small><small>Teilgruppe</small></small></th>
-                              <td></td>
-                              </tr>
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
 
-                              <tr class="table-success">
-                              <th><small><small>Pflicht</small></small></th>
-                              <td class="text-center"><i class="bi bi-check-lg"></i></td>
-                              </tr>
-                              <tr class="table-success">
-                              <th ><small><small>Empfehlung</small></small></th>
-                              <td></td>
-                              </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
 
-                              <tr class="table-warning">
-                              <th><small><small>wird durchgeführt</small></small></th>
-                              <td class="text-center"><i class="bi bi-check-lg"></td>
-                              </tr>
-                              <tr class="table-warning">
-                              <th ><small><small>Planung/Umsetzung</small></small></th>
-                              <td class="text-center"> </td>
-                              </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
 
-                            </tbody>
-                            </table>
-                        </small>
-                      </small>
-                    </div>
-                  </div>
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "14" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
 
-                  <div class="card mb2- shadow" style="background-color: #13630919">
-                    <h6 class="card-header" >Biologie • Jgst. 5</h6>
-                    <div class="card-body px-2">
-                      <small>
-                        <p><b>Unterrichtsvorhaben:</b> Computer - Hard- und Software</p>
-                        <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> schulinteres Curriculum</p>
-                          <p><b>Medienkompetenz:</b> Unterschied zwischen Hard- & Software erläutern; wesentliche Hardware-Komponenten erläutern</p>
-                        </small>
-                      </small>
-                    </div>
-                  </div>
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
+
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -132,6 +227,86 @@
                       kreativ, reflektiert und zielgerichtet einsetzen
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "12" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -153,6 +328,86 @@
                       strukturiert aufbewahren
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "13" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -176,7 +431,7 @@
                   </div>
 
                   {% for obj in mkr_objects %}
-                    {% if obj.kategorie == "12" %}
+                    {% if obj.kategorie == "14" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
                         <div class="card-body px-2">
@@ -286,6 +541,86 @@
                       Suchstrategien anwenden
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "21" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -306,6 +641,86 @@
                       und aufbereiten
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "22" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -326,6 +741,86 @@
                       Strategien und Absichten erkennen und kritisch bewerten
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "23" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -347,6 +842,86 @@
                       und Hilfs- und Unterstützungsstrukturen nutzen
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "24" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -377,6 +952,86 @@
                       gestalten sowie mediale Produkte und Informationen teilen
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "31" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -397,6 +1052,86 @@
                       formulieren und einhalten
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "32" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -418,6 +1153,86 @@
                       ethische Grundsätze sowie kulturell-gesellschaftliche Normen beachten
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "33" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -439,6 +1254,86 @@
                       Ansprechpartner und Reaktionsmöglichkeiten kennen und nutzen
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "34" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -472,6 +1367,86 @@
                       kennen und nutzen
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "41" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -492,6 +1467,86 @@
                       ihrer Qualität, Wirkung und Aussageabsicht beurteilen
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "42" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -512,6 +1567,86 @@
                       Inhalten kennen und anwenden
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "43" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -533,6 +1668,86 @@
                       Lizenzen) überprüfen, bewerten und beachten
                     </small>
                   </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "44" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
@@ -564,6 +1779,86 @@
                         und reflektieren
                       </small>
                     </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "51" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                   </div>
                 </div>
               </div>
@@ -584,6 +1879,86 @@
                         Medien erkennen sowie in Bezug auf die Meinungsbildung beurteilen
                       </small>
                     </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "52" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                   </div>
                 </div>
               </div>
@@ -604,6 +1979,86 @@
                         eigene Identitätsbildung nutzen
                       </small>
                     </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "53" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                   </div>
                 </div>
               </div>
@@ -625,6 +2080,86 @@
                         ihrer Mediennutzung unterstützen
                       </small>
                     </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "54" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                   </div>
                 </div>
               </div>
@@ -655,6 +2190,86 @@
                         Grundlegende Prinzipien und Funktionsweisen der digitalen Welt identifizieren, kennen, verstehen und bewusst nutzen
                       </small>
                     </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "61" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                   </div>
                 </div>
               </div>
@@ -674,6 +2289,86 @@
                         Algorithmische Muster und Strukturen in verschiedenen Kontexten erkennen, nachvollziehen und reflektieren
                       </small>
                     </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "62" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                   </div>
                 </div>
               </div>
@@ -694,6 +2389,86 @@
                         diese auch durch Programmieren umsetzen und die gefundene Lösungsstrategie beurteilen
                       </small>
                     </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "63" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                   </div>
                 </div>
               </div>
@@ -713,6 +2488,86 @@
                         Einflüsse von Algorithmen und Auswirkung der Automatisierung von Prozessen in der digitalen Welt beschreiben und reflektieren
                       </small>
                     </div>
+
+                  {% for obj in mkr_objects %}
+                    {% if obj.kategorie == "64" %}
+                      <div class="card mb-2 shadow" style="background-color: #8d96e836">
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <div class="card-body px-2">
+                          <small>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+                            <small>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
+                              <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
+
+                              <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th scope="col"><small>Das Vorhaben...</small></th>
+                                  </tr>
+                                </thead>
+
+                                <tbody>
+                                  <tr class="table-primary">
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
+                                  </tr>
+                                  <tr class="table-primary">
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-success">
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-success">
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+
+                                  <tr class="table-warning">
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                  <tr class="table-warning">
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </small>
+                          </small>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+
                   </div>
                 </div>
               </div>
