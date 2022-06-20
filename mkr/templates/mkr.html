@@ -181,11 +181,11 @@
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
                         <div class="card-body px-2">
                           <small>
-                            <p><b>Unterrichtsvorhaben:</b> Computer - Hard- und Software</p>
+                            <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                             <small>
-                              <p><b>Detaillierte Informationen befinden sich hier:</b> schulinteres Curriculum</p>
+                              <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                               <p><b>Medienkompetenz:</b> Unterschied zwischen Hard- & Software erläutern; wesentliche Hardware-Komponenten erläutern</p>
-                              <p><b>Technik:</b> schuleigene PCs</p>
+                              <p><b>Technik:</b> {{ obj.technik }}</p>
 
                               <table class="table table-bordered">
                                 <thead>
@@ -196,34 +196,57 @@
 
                                 <tbody>
                                   <tr class="table-primary">
-                                  <th><small><small>ist für alle</small></small></th>
-                                  <td class="text-center"><i class="bi bi-check-lg"></td>
+                                    <th><small><small>ist für alle</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                     </td>
                                   </tr>
                                   <tr class="table-primary">
-                                  <th ><small><small>Teilgruppe</small></small></th>
-                                  <td></td>
+                                    <th><small><small>Teilgruppe</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.alle_teil == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
                                   </tr>
 
                                   <tr class="table-success">
-                                  <th><small><small>Pflicht</small></small></th>
-                                  <td class="text-center"><i class="bi bi-check-lg"></i></td>
+                                    <th><small><small>Pflicht</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
                                   </tr>
                                   <tr class="table-success">
-                                  <th ><small><small>Empfehlung</small></small></th>
-                                  <td></td>
+                                    <th><small><small>Empfehlung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.pflicht_empf == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
                                   </tr>
 
                                   <tr class="table-warning">
-                                  <th><small><small>wird durchgeführt</small></small></th>
-                                  <td class="text-center"><i class="bi bi-check-lg"></td>
+                                    <th><small><small>wird durchgeführt</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '0' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
                                   </tr>
                                   <tr class="table-warning">
-                                  <th ><small><small>Planung/Umsetzung</small></small></th>
-                                  <td class="text-center"> </td>
+                                    <th><small><small>Planung/Umsetzung</small></small></th>
+                                    <td class="text-center">
+                                      {% if obj.durchf_planung == '1' %}
+                                        <i class="bi bi-check-lg">
+                                      {% endif %}
+                                    </td>
                                   </tr>
-
                                 </tbody>
-                                </table>
+                              </table>
                             </small>
                           </small>
                         </div>
