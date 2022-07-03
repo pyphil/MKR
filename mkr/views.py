@@ -1,7 +1,9 @@
+import imp
 from django.shortcuts import render, redirect
 from .forms import KompetenzkarteForm
 from .models import Kompetenzkarte
 from django.http import HttpResponse, FileResponse
+from django.conf import settings
 
 
 def home(request):
@@ -21,4 +23,8 @@ def karte(request):
 
 
 def download(request):
-    return FileResponse(open('media/downloads/git-cheat-sheet-education.pdf', 'rb'), as_attachment=True, filename='git-cheat-sheet.pdf')
+    return FileResponse(
+        open(settings.MEDIA_ROOT + '/downloads/git-cheat-sheet-education.pdf', 'rb'), 
+        as_attachment=True, 
+        filename='git-cheat-sheet.pdf'
+    )
