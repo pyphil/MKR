@@ -1,5 +1,6 @@
 from distutils.command.upload import upload
 from django.db import models
+import os
 
 
 class Fach(models.Model):

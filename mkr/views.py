@@ -22,9 +22,10 @@ def karte(request):
             return redirect('home')
 
 
-def download(request):
+def download(request, filename):
     return FileResponse(
-        open(settings.MEDIA_ROOT + '/downloads/git-cheat-sheet-education.pdf', 'rb'), 
+        # open(settings.MEDIA_ROOT + '/downloads/git-cheat-sheet-education.pdf', 'rb'), 
+        open(settings.MEDIA_ROOT + '/downloads/' + filename, 'rb'), 
         as_attachment=True, 
-        filename='git-cheat-sheet.pdf'
+        filename=filename
     )

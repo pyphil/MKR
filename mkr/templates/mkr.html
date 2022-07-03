@@ -120,7 +120,7 @@
                                 </tbody>
                               </table>
                               {% if obj.download %}
-                                <p><b>Download:</b> {{ obj.download.url }}</p>
+                                <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                               {% endif %}
                             </small>
                           </small>
