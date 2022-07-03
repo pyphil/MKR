@@ -16,7 +16,7 @@ def karte(request):
         f = KompetenzkarteForm()
         return render(request, 'karte.html', {'form': f})
     if request.method == 'POST':
-        f = KompetenzkarteForm(request.POST)
+        f = KompetenzkarteForm(request.POST, request.FILES)
         if f.is_valid():
             f.save()
             return redirect('home')

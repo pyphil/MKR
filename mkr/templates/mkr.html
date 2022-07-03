@@ -119,6 +119,9 @@
                                   </tr>
                                 </tbody>
                               </table>
+                              {% if obj.download %}
+                                <p><b>Download:</b> {{ obj.download.url }}</p>
+                              {% endif %}
                             </small>
                           </small>
                         </div>

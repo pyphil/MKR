@@ -18,6 +18,7 @@ class KompetenzkarteForm(ModelForm):
             'alle_teil',
             'pflicht_empf',
             'durchf_planung',
+            'download',
         )
         labels = {
             'kategorie': mark_safe('<strong>Kategorie im Medienkompetenzrahmen:</strong>'),
@@ -30,6 +31,7 @@ class KompetenzkarteForm(ModelForm):
             'alle_teil': mark_safe('<strong>Das Vorhaben ist...</strong>'),
             'pflicht_empf': mark_safe('<strong>Das Vorhaben ist...</strong>'),
             'durchf_planung': mark_safe('<strong>Das Vorhaben ist...</strong>'),
+            'download': mark_safe('<strong>Dateianhang (wird nur im internen Bereich sichtbar)</strong>')
         }
         widgets = {
             'kategorie': forms.Select(attrs={'class': 'form-select'}),
