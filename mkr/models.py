@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 
 
@@ -71,6 +72,7 @@ class Kompetenzkarte(models.Model):
         ('1', 'Planung/Umsetzung'),
     ]
     durchf_planung = models.CharField(max_length=1, choices=DURCHF_PLANUNG_CHOICES)
+    file = models.FileField(null=True, blank=True, upload_to="downloads/")
 
     class Meta:
         verbose_name_plural = 'Kompetenzkarten'
