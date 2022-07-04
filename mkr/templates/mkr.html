@@ -119,8 +119,10 @@
                                   </tr>
                                 </tbody>
                               </table>
-                              {% if obj.download %}
-                                <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              {% if user.is_authenticated %}
+                                {% if obj.download %}
+                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                {% endif %}
                               {% endif %}
                             </small>
                           </small>

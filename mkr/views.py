@@ -1,9 +1,9 @@
-import imp
 from django.shortcuts import render, redirect
 from .forms import KompetenzkarteForm
 from .models import Kompetenzkarte
 from django.http import HttpResponse, FileResponse
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -22,6 +22,7 @@ def karte(request):
             return redirect('home')
 
 
+@login_required
 def download(request, filename):
     return FileResponse(
         # open(settings.MEDIA_ROOT + '/downloads/git-cheat-sheet-education.pdf', 'rb'), 
