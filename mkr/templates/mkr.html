@@ -50,7 +50,7 @@
                   {% for obj in mkr_objects %}
                     {% if obj.kategorie == "11" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
-                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }}</h6>
+                        <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; <button class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></button></h6>
                         <div class="card-body px-2">
                           <small>
                             <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
