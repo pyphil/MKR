@@ -11,6 +11,7 @@ def home(request):
     return render(request, 'mkr.html', {'mkr_objects': mkr_objects})
 
 
+@login_required
 def karte(request):
     if request.method == 'GET':
         f = KompetenzkarteForm()
