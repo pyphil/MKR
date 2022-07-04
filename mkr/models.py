@@ -62,17 +62,17 @@ class Kompetenzkarte(models.Model):
         ('0', 'ist für alle '),
         ('1', 'Teilgruppe'),
     ]
-    alle_teil = models.CharField(max_length=1, choices=ALLE_TEIL_CHOICES)
+    alle_teil = models.CharField(max_length=1, choices=ALLE_TEIL_CHOICES, null=True, blank=True)
     PFLICHT_EMPF_CHOICES = [
         ('0', 'Pflicht'),
         ('1', 'Empfehlung'),
     ]
-    pflicht_empf = models.CharField(max_length=1, choices=PFLICHT_EMPF_CHOICES)
+    pflicht_empf = models.CharField(max_length=1, choices=PFLICHT_EMPF_CHOICES, null=True, blank=True)
     DURCHF_PLANUNG_CHOICES = [
         ('0', 'wird durchgeführt'),
         ('1', 'Planung/Umsetzung'),
     ]
-    durchf_planung = models.CharField(max_length=1, choices=DURCHF_PLANUNG_CHOICES)
+    durchf_planung = models.CharField(max_length=1, choices=DURCHF_PLANUNG_CHOICES, null=True, blank=True)
     download = models.FileField(null=True, blank=True, upload_to="downloads/")
 
     class Meta:
