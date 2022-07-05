@@ -24,6 +24,19 @@ def karte(request):
 
 
 @login_required
+def karte_bearbeiten(request, id):
+    obj = Kompetenzkarte.objects.get(id=id)
+    if request.method == 'GET':
+        f = KompetenzkarteForm(instance=obj)
+        return render(request, 'karte.html', {'form': f})
+    if request.method == 'POST':
+        f = KompetenzkarteForm(request.POST, request.FILES, instance=obj)
+        if f.is_valid():
+            f.save()
+            return redirect('home')
+
+
+@login_required
 def download(request, filename):
     return FileResponse(
         # open(settings.MEDIA_ROOT + '/downloads/git-cheat-sheet-education.pdf', 'rb'),
