@@ -24,17 +24,17 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light mt-3 mb-3 shadow">
       <div class="container-fluid">
         <div class="d-flex">
-        <a class="navbar-brand mt-2 me-5" href="#"><h4>Medienkompetenzrahmen der GeNM</h4></a>
+        <a class="navbar-brand mt-2 me-5" href="/"><h4>Medienkompetenzrahmen der GeNM</h4></a>
           <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             {% if user.is_authenticated %}
-              <a class="btn btn-secondary" href="#"><i class="bi bi-person-circle"></i> Logout ({{ user.username }})</a>
-              <a class="btn btn-success ms-2" href="#"><i class="bi bi-card-heading"></i> Karte hinzufügen</a>
+              <a class="btn btn-secondary shadow" href="#"><i class="bi bi-person-circle"></i> Logout ({{ user.username }})</a>
+              <a class="btn btn-success ms-2 shadow" href="{% url 'karte' %}"><i class="bi bi-card-heading"></i> Karte erstellen</a>
             {% else %}
-              <a class="btn btn-secondary" href="#"><i class="bi bi-person-circle"></i> Login</a>
+              <a class="btn btn-secondary shadow" href="#"><i class="bi bi-person-circle"></i> Login</a>
             {% endif %}
           </div>
         </div>
@@ -71,7 +71,9 @@
                     {% if obj.kategorie == "11" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -143,7 +145,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -157,7 +159,9 @@
                     {% if obj.kategorie == "14" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -229,7 +233,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -266,7 +270,9 @@
                     {% if obj.kategorie == "12" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -338,7 +344,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -374,7 +380,9 @@
                     {% if obj.kategorie == "13" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -446,7 +454,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -482,7 +490,9 @@
                     {% if obj.kategorie == "14" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -554,7 +564,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -601,7 +611,9 @@
                     {% if obj.kategorie == "21" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -673,7 +685,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -708,7 +720,9 @@
                     {% if obj.kategorie == "22" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -780,7 +794,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -815,7 +829,9 @@
                     {% if obj.kategorie == "23" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -887,7 +903,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -923,7 +939,9 @@
                     {% if obj.kategorie == "24" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -995,7 +1013,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -1040,7 +1058,9 @@
                     {% if obj.kategorie == "31" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -1112,7 +1132,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -1147,7 +1167,9 @@
                     {% if obj.kategorie == "32" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -1219,7 +1241,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -1255,7 +1277,9 @@
                     {% if obj.kategorie == "33" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -1327,7 +1351,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -1363,7 +1387,9 @@
                     {% if obj.kategorie == "34" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -1435,7 +1461,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -1483,7 +1509,9 @@
                     {% if obj.kategorie == "41" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -1555,7 +1583,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -1590,7 +1618,9 @@
                     {% if obj.kategorie == "42" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -1662,7 +1692,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -1697,7 +1727,9 @@
                     {% if obj.kategorie == "43" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -1769,7 +1801,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -1805,7 +1837,9 @@
                     {% if obj.kategorie == "44" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -1877,7 +1911,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -1923,7 +1957,9 @@
                     {% if obj.kategorie == "51" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -1995,7 +2031,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -2030,7 +2066,9 @@
                     {% if obj.kategorie == "52" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -2102,7 +2140,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -2137,7 +2175,9 @@
                     {% if obj.kategorie == "53" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -2209,7 +2249,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -2245,7 +2285,9 @@
                     {% if obj.kategorie == "54" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -2317,7 +2359,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -2362,7 +2404,9 @@
                     {% if obj.kategorie == "61" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -2434,7 +2478,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -2468,7 +2512,9 @@
                     {% if obj.kategorie == "62" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -2540,7 +2586,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -2575,7 +2621,9 @@
                     {% if obj.kategorie == "63" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -2647,7 +2695,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
@@ -2681,7 +2729,9 @@
                     {% if obj.kategorie == "64" %}
                       <div class="card mb-2 shadow" style="background-color: #8d96e836">
                         <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                          <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% if user.is_authenticated %}
+                            <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                          {% endif %}
                         </h6>
                         <div class="card-body px-2">
                           <small>
@@ -2753,7 +2803,7 @@
                               </table>
                               {% if user.is_authenticated %}
                                 {% if obj.download %}
-                                  <p><b>Download:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                                  <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                                 {% endif %}
                               {% endif %}
                             </small>
