@@ -1,6 +1,8 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
+from .models import Profile
 from .forms import RegisterUserForm
+from uuid import uuid4
+from django.contrib.auth.models import User
 
 # Create your views here.
 def register(request):
@@ -12,7 +14,17 @@ def register(request):
                 user = form.save(commit=False)
                 user.is_active = False
                 user.save()
+                newuuid = uuid4().hex
+                Profile.objects.create(
+                    user=user,
+                    uuid=newuuid
+                )
+                print("Confirmation uuid: ", newuuid)
                 # render info page about email confirmation
+                # set user active:
+                u = User.objects.get(profile__uuid=newuuid)
+                u.is_active = True
+                u.save()
         else:
             email_error = True
     else:
