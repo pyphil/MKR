@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Profile
+from .models import Profile, AllowedEmail
 from .forms import RegisterUserForm
 from uuid import uuid4
 from django.contrib.auth.models import User
@@ -9,7 +9,8 @@ def register(request):
     email_error = False
     if request.method == "POST":
         form = RegisterUserForm(request.POST)
-        if request.POST.get('email') in ['abc@genm.info', 'test13@genm.info']:
+        allowed_emails = AllowedEmail.objects.get(school="genm")
+        if request.POST.get('email') in allowed_emails.emails:
             if form.is_valid():
                 user = form.save(commit=False)
                 user.is_active = False
