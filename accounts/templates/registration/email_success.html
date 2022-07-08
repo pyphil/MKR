@@ -1,0 +1,23 @@
+{% extends 'base.html' %}  
+{% block content %}
+ 
+  <div class="row justify-content-md-center">
+    <div class="card shadow" style="width: 800;">
+      <div class="card-body">
+        <h4 class="mb-4">Bestätigung der E-Mail-Adresse</h4>
+        <p>
+          {% if error %}
+            <div class="alert alert-danger">
+              Dieser Bestätigungslink ist nicht gültig.
+            </div>
+          {% else %}
+            <div class="alert alert-success">
+              Die E-Mail-Adresse wurde erfolgreich bestätigt.
+            </div>
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}

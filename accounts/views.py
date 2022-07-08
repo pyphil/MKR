@@ -4,7 +4,7 @@ from .forms import RegisterUserForm
 from uuid import uuid4
 from django.contrib.auth.models import User
 
-# Create your views here.
+
 def register(request):
     email_error = False
     if request.method == "POST":
@@ -22,13 +22,22 @@ def register(request):
                 )
                 print("Confirmation uuid: ", newuuid)
                 # render info page about email confirmation
-                # set user active:
-                u = User.objects.get(profile__uuid=newuuid)
-                u.is_active = True
-                u.save()
         else:
             email_error = True
     else:
         form = RegisterUserForm()
 
     return render(request, 'registration/register.html', {'form': form, 'email_error': email_error})
+
+
+def confirm_email(request, uuid):
+    # set user active:
+    error = False
+    try:
+        u = User.objects.get(profile__uuid=uuid)
+        u.is_active = True
+        u.save()
+    except User.DoesNotExist:
+        error = True
+
+    return render(request, 'registration/email_success.html', {'error': error})
