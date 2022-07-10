@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Profile, AllowedEmail
 from .forms import RegisterUserForm
 from uuid import uuid4
@@ -22,12 +22,17 @@ def register(request):
                 )
                 print("Confirmation uuid: ", newuuid)
                 # render info page about email confirmation
+                return redirect('registration_email')
         else:
             email_error = True
     else:
         form = RegisterUserForm()
 
     return render(request, 'registration/register.html', {'form': form, 'email_error': email_error})
+
+
+def registration_email(request):
+    return render(request, 'registration/registration_email.html', {})
 
 
 def confirm_email(request, uuid):
