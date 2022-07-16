@@ -18,11 +18,11 @@
         <div class="text-center">
           <button type="submit" class="btn btn-primary mt-3 mb-2">Anmelden</button>
           <a href="{{ next }}" class="btn btn-secondary mt-3 mb-2">Abbrechen</a>
-          <input type="hidden" name="next" value="{{ next }}">
+          <input type="hidden" name="next" value="/">
           {% if form.errors %}
             <div class="alert alert-danger mt-3">
               Benutzername oder Passwort falsch.
-          </div>
+            </div>
           {% endif %}
         </div>
       </div>
