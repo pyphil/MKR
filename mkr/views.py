@@ -8,7 +8,15 @@ from django.contrib.auth.decorators import login_required
 
 def home(request):
     mkr_objects = Kompetenzkarte.objects.all()
-    return render(request, 'mkr.html', {'mkr_objects': mkr_objects})
+    if request.GET.get('cookiebutton'):
+        response = redirect('home')
+        response.set_cookie('cookiebanner', False)
+        return response
+    try:
+        cookiebanner = request.COOKIES['cookiebanner']
+    except Exception:
+        cookiebanner = True
+    return render(request, 'mkr.html', {'mkr_objects': mkr_objects, 'cookiebanner': cookiebanner})
 
 
 @login_required
