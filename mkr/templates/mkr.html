@@ -58,17 +58,11 @@
               {% for obj in mkr_objects %}
                 {% if obj.kategorie == "11" %}
                   <div class="card mb-2 shadow" style="background-color: #8d96e836">
-                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                      Link with href
-                      <h6 class="card-header">
-                        {{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
-                        {% if user.is_authenticated %}
+                    <h6 class="card-header" >{{ obj.fach }} • {{ obj.get_jgst_display }} &nbsp; 
+                      {% if user.is_authenticated %}
                         <a href="{% url 'karte_bearbeiten' obj.id %}" class="btn btn-secondary btn-sm"><i class="bi bi-pencil-fill"></i></a>
-                        {% endif %}
-                      </h6>
-                    </a>
-                  
-                    <div class="collapse" id="collapseExample">
+                      {% endif %}
+                    </h6>
                     <div class="card-body px-2">
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
@@ -144,7 +138,6 @@
                           {% endif %}
                         </small>
                       </small>
-                    </div>
                     </div>
                   </div>
                 {% endif %}
