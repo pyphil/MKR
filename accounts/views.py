@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .models import Profile, AllowedEmail
+from .models import Profile, AllowedEmail, Config
 from .forms import RegisterUserForm
 from uuid import uuid4
 from django.contrib.auth.models import User
@@ -23,11 +23,11 @@ def register(request):
                     uuid=newuuid
                 )
                 # TODO: Send Mail
-                print("User: ", user)
+                print("User: ", user.username)
                 print("E-Mail: ", user.email)
                 print("Confirmation uuid: ", newuuid)
                 # send mail with link in thread
-                thread = mail_thread(user, user.email, newuuid)
+                thread = mail_thread(user.username, user.email, newuuid)
                 thread.start()
                 # render info page about email confirmation
                 return redirect('registration_email')
@@ -70,11 +70,13 @@ class mail_thread(Thread):
         # send mail
         mail_text_obj = Config.objects.get(name='mail_text')
         mail_text = mail_text_obj.text
-        mail_text = mail_text.replace('#NAME#', self.user)
-        mail_text = mail_text.replace('#UUID#', self.newuuid)
+        mail_text = mail_text.replace('#USER#', self.user)
+        #TODO: How to get link?
+        # link = link + self.newuuid
+        mail_text = mail_text.replace('#LINK#', link)
 
         send_mail(
-            'WLAN-CODE',
+            'Registrierung MKR GENM',
             mail_text,
             self.noreply,
             [self.email],
