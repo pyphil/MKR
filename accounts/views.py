@@ -8,6 +8,8 @@ from django.core.mail import send_mail
 
 
 def register(request):
+    print(redirect('confirm_email', 'uuid').url)
+    print(request.get_host())
     email_error = False
     if request.method == "POST":
         form = RegisterUserForm(request.POST)
@@ -25,9 +27,10 @@ def register(request):
                 # TODO: Send Mail
                 print("User: ", user.username)
                 print("E-Mail: ", user.email)
-                print("Confirmation uuid: ", newuuid)
+                print("Confirmation link: ", request.get_host() + redirect('confirm_email', newuuid).url)
                 # send mail with link in thread
-                thread = mail_thread(user.username, user.email, newuuid)
+                link = request.get_host() + redirect('confirm_email', newuuid).url
+                thread = mail_thread(user.username, user.email, link)
                 thread.start()
                 # render info page about email confirmation
                 return redirect('registration_email')
@@ -58,9 +61,9 @@ def confirm_email(request, uuid):
 
 class mail_thread(Thread):
     # TODO: Anpassen
-    def __init__(self, user, email, newuuid):
+    def __init__(self, user, email, link):
         super(mail_thread, self).__init__()
-        self.newuuid = newuuid
+        self.link = link
         self.user = user
         self.email = email
         self.noreply = Config.objects.get(name="noreply-mail")
@@ -71,9 +74,7 @@ class mail_thread(Thread):
         mail_text_obj = Config.objects.get(name='mail_text')
         mail_text = mail_text_obj.text
         mail_text = mail_text.replace('#USER#', self.user)
-        #TODO: How to get link?
-        # link = link + self.newuuid
-        mail_text = mail_text.replace('#LINK#', link)
+        mail_text = mail_text.replace('#LINK#', self.link)
 
         send_mail(
             'Registrierung MKR GENM',
