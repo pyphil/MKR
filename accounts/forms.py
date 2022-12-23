@@ -4,7 +4,7 @@ from django import forms
 
 
 class RegisterUserForm(UserCreationForm):
-    email = forms.EmailField()
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = User
@@ -14,3 +14,4 @@ class RegisterUserForm(UserCreationForm):
             'password1',
             'password2'
         )
+
