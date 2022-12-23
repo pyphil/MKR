@@ -14,8 +14,8 @@ class AllowedEmail(models.Model):
 
 class Config(models.Model):
     NAME_CHOICES = [
-        ('noreply-mail', 'noreply-E-Mail-Absenderadresse zum Versand der Codes'),
-        ('mail_text', 'Mailtext zum Versand der Codes'),
+        ('noreply-mail', 'noreply-E-Mail-Absenderadresse'),
+        ('mail_text', 'Mailtext zum Versand der Registrierungslinks'),
     ]
     name = models.CharField(max_length=50, choices=NAME_CHOICES)
     setting = models.CharField(max_length=200, blank=True)
