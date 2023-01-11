@@ -55,7 +55,6 @@ def confirm_email(request, uuid):
 
 
 class mail_thread(Thread):
-    # TODO: Anpassen
     def __init__(self, user, email, link):
         super(mail_thread, self).__init__()
         self.link = link
