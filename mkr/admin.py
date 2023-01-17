@@ -13,5 +13,10 @@ class KompetenzkarteCustomAdmin(admin.ModelAdmin):
         )
 
 
+class FachCustomAdmin(admin.ModelAdmin):
+    list_display = ('id', 'fach')
+    ordering = ['fach']
+
+
 admin.site.register(Kompetenzkarte, KompetenzkarteCustomAdmin)
-admin.site.register(Fach)
+admin.site.register(Fach, FachCustomAdmin)
