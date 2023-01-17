@@ -125,6 +125,7 @@ STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 # Done in local_settings.py in production only
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'public/media'
 
 
 # Default primary key field type
