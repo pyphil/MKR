@@ -120,8 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-# Done in local_settings.py in production only
-# STATIC_ROOT = os.path.join(BASE_DIR, 'public/static')
+# In production static files are loaded from public folder
+STATIC_ROOT = os.path.join(BASE_DIR, 'public/static')
 
 MEDIA_URL = 'media/'
 # In the setup for this site, media should be kept private by the webserver
