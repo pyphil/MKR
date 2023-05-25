@@ -1,6 +1,4 @@
-from distutils.command.upload import upload
 from django.db import models
-import os
 
 
 class Fach(models.Model):
@@ -11,6 +9,7 @@ class Fach(models.Model):
 
     class Meta:
         verbose_name_plural = 'Fächer'
+        ordering = ['fach']
 
 
 class Kompetenzkarte(models.Model):

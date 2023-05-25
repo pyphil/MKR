@@ -28,9 +28,9 @@ class KompetenzkarteForm(ModelForm):
             'info': mark_safe('<strong>Detaillierte Informationen befinden sich hier (z.B. schulinternes Curriculum)</strong>'),
             'medienkompetenz': mark_safe('<strong>Medienkompetenz</strong>'),
             'technik': mark_safe('<strong>Technik</strong>'),
-            'alle_teil': mark_safe('<strong>Das Vorhaben ist...</strong>'),
-            'pflicht_empf': mark_safe('<strong>Das Vorhaben ist...</strong>'),
-            'durchf_planung': mark_safe('<strong>Das Vorhaben ist...</strong>'),
+            'alle_teil': mark_safe('<strong>Das Vorhaben ...</strong>'),
+            'pflicht_empf': mark_safe('<strong>Das Vorhaben ...</strong>'),
+            'durchf_planung': mark_safe('<strong>Das Vorhaben ...</strong>'),
             'download': mark_safe('<strong>Dateianhang für internen Bereich (Material, Konzept)</strong>')
         }
         widgets = {

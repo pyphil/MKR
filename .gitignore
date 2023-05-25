@@ -62,6 +62,8 @@ db.sqlite3
 db.sqlite3-journal
 media
 passenger_wsgi.py
+public/
+tmp/
 
 # Flask stuff:
 instance/

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'MKR_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ BASE_DIR / 'templates' ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,12 +120,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-# Done in local_settings.py in production only
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# In production static files are loaded from public folder
+STATIC_ROOT = os.path.join(BASE_DIR, 'public/static')
 
 MEDIA_URL = 'media/'
-# Done in local_settings.py in production only
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# In the setup for this site, media should be kept private by the webserver
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Default primary key field type

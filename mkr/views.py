@@ -47,7 +47,6 @@ def karte_bearbeiten(request, id):
 @login_required
 def download(request, filename):
     return FileResponse(
-        # open(settings.MEDIA_ROOT + '/downloads/git-cheat-sheet-education.pdf', 'rb'),
         open(settings.MEDIA_ROOT + '/downloads/' + filename, 'rb'),
         as_attachment=True, 
         filename=filename

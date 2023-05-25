@@ -1,8 +1,10 @@
 from django.shortcuts import redirect, render
-from .models import Profile, AllowedEmail
+from .models import Profile, AllowedEmail, Config
 from .forms import RegisterUserForm
 from uuid import uuid4
 from django.contrib.auth.models import User
+from threading import Thread
+from django.core.mail import send_mail
 
 
 def register(request):
@@ -20,7 +22,11 @@ def register(request):
                     user=user,
                     uuid=newuuid
                 )
-                print("Confirmation uuid: ", newuuid)
+
+                # send mail with link in thread
+                link = 'https://' + request.get_host() + redirect('confirm_email', newuuid).url
+                thread = mail_thread(user.username, user.email, link)
+                thread.start()
                 # render info page about email confirmation
                 return redirect('registration_email')
         else:
@@ -46,3 +52,28 @@ def confirm_email(request, uuid):
         error = True
 
     return render(request, 'registration/email_success.html', {'error': error})
+
+
+class mail_thread(Thread):
+    def __init__(self, user, email, link):
+        super(mail_thread, self).__init__()
+        self.link = link
+        self.user = user
+        self.email = email
+        self.noreply = Config.objects.get(name="noreply-mail")
+
+    # run method is automatically executed on thread.start()
+    def run(self):
+        # send mail
+        mail_text_obj = Config.objects.get(name='mail_text')
+        mail_text = mail_text_obj.text
+        mail_text = mail_text.replace('#USER#', self.user)
+        mail_text = mail_text.replace('#LINK#', self.link)
+
+        send_mail(
+            'Registrierung MKR GENM',
+            mail_text,
+            self.noreply,
+            [self.email],
+            fail_silently=True,
+        )

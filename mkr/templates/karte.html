@@ -8,11 +8,12 @@
       <strong>Methodenkompetenzrahmen - Karte erstellen</strong>
     </div>
     <div class="card-body">
-      <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Speichern</button>
-      </form>
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Speichern</button>
+          <a href="{% url 'home' %}" class="btn btn-secondary">Abbrechen</a>
+        </form>
   </div>
   </div>
 </div>
