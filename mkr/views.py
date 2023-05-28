@@ -51,3 +51,5 @@ def download(request, filename):
         as_attachment=True, 
         filename=filename
     )
+def rate_limit_exceeded_view(request):
+    return render(request, 'rate_limit_exceeded.html')
