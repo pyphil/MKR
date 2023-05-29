@@ -8,7 +8,7 @@ class LoginRateLimiterMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        if request.path == '/accounts/login/':  # Adjust the login URL as per your project's setup
+        if request.path == '/accounts/login/' or request.path == '/admin/login/':  # Adjust the login URL as per your project's setup
             ip_address = request.META.get('REMOTE_ADDR')
             cache_key = f'login_rate_limit:{ip_address}'
             rate_limit = 5 # Maximum allowed login attempts per minute
@@ -16,5 +16,5 @@ class LoginRateLimiterMiddleware:
             if current_attempts >= rate_limit:
                 return redirect('rate_limit_exceeded')
             else:
-                cache.set(cache_key, current_attempts + 1, 600)  # Store attempts for 1 minute
+                cache.set(cache_key, current_attempts + 1, 600)  # Store attempts for 10 minutes
         return self.get_response(request)
