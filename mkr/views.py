@@ -48,8 +48,10 @@ def karte_bearbeiten(request, id):
 def download(request, filename):
     return FileResponse(
         open(settings.MEDIA_ROOT + '/downloads/' + filename, 'rb'),
-        as_attachment=True, 
+        as_attachment=True,
         filename=filename
     )
+
+
 def rate_limit_exceeded_view(request):
     return render(request, 'rate_limit_exceeded.html')

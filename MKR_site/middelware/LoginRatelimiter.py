@@ -1,5 +1,4 @@
 # middlewares.py
-from django.http import HttpResponseForbidden
 from django.core.cache import cache
 from django.shortcuts import redirect
 
@@ -16,7 +15,6 @@ class LoginRateLimiterMiddleware:
             current_attempts = cache.get(cache_key, 0)
             if current_attempts >= rate_limit:
                 return redirect('rate_limit_exceeded')
-                #return HttpResponseForbidden('Too many login attempts. Please try again later.')
             else:
                 cache.set(cache_key, current_attempts + 1, 600)  # Store attempts for 1 minute
         return self.get_response(request)
