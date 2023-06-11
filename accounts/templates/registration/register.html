@@ -3,8 +3,8 @@
 
 <form method="post">
   {% csrf_token %}
-  <div class="row justify-content-md-center">
-    <div class="card shadow" style="width: 800;">
+  <div class="row justify-content-center">
+    <div class="card shadow" style="width: 800px;">
       <div class="card-body">
         <h4 class="mb-4">Registrieren</h4>
         <form method="POST">
@@ -27,7 +27,8 @@
           {% endif %}
           <p>Passwort (mind. 8 Zeichen): {{ form.password1 }}</p>
           <p>Wiederholung Passwort: {{ form.password2 }}</p>
-          <button type="submit" class="btn btn-secondary">Registrieren</button>
+          <button type="submit" class="btn btn-primary mt-2">Registrieren</button>
+          <a href="{% url 'home' %}" class="btn btn-secondary mt-2">Abbrechen</a>
         </form>
       </div>
     </div>

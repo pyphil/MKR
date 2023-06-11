@@ -2,19 +2,22 @@
 {% block content %}
 
 <div class="container mt-3 mb-5">
-
-  <div class="card">
-    <div class="card-header">
-      <strong>Methodenkompetenzrahmen - Karte erstellen</strong>
+  <div class="row justify-content-center">
+    <div class="col" style="max-width: 900px;">
+      <div class="card">
+        <div class="card-header">
+          <strong>Methodenkompetenzrahmen - Karte erstellen</strong>
+        </div>
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-primary mt-3">Speichern</button>
+              <a href="{% url 'home' %}" class="btn btn-secondary mt-3">Abbrechen</a>
+            </form>
+        </div>
+      </div>
     </div>
-    <div class="card-body">
-        <form method="POST" enctype="multipart/form-data">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit" class="btn btn-primary">Speichern</button>
-          <a href="{% url 'home' %}" class="btn btn-secondary">Abbrechen</a>
-        </form>
-  </div>
   </div>
 </div>
 

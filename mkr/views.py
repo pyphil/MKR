@@ -22,7 +22,7 @@ def home(request):
 @login_required
 def karte(request):
     if request.method == 'GET':
-        f = KompetenzkarteForm()
+        f = KompetenzkarteForm(label_suffix="")
         return render(request, 'karte.html', {'form': f})
     if request.method == 'POST':
         f = KompetenzkarteForm(request.POST, request.FILES)
@@ -35,7 +35,7 @@ def karte(request):
 def karte_bearbeiten(request, id):
     obj = Kompetenzkarte.objects.get(id=id)
     if request.method == 'GET':
-        f = KompetenzkarteForm(instance=obj)
+        f = KompetenzkarteForm(instance=obj, label_suffix="")
         return render(request, 'karte.html', {'form': f})
     if request.method == 'POST':
         f = KompetenzkarteForm(request.POST, request.FILES, instance=obj)
