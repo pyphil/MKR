@@ -6,6 +6,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     uuid = models.CharField(max_length=32)
 
+    def __str__(self):
+        return self.user
 
 class AllowedEmail(models.Model):
     emails = models.TextField()
