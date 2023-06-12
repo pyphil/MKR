@@ -58,8 +58,8 @@ class Kompetenzkarte(models.Model):
     medienkompetenz = models.CharField(max_length=200)
     technik = models.CharField(max_length=200)
     ALLE_TEIL_CHOICES = [
-        ('0', 'ist für alle '),
-        ('1', 'Teilgruppe'),
+        ('0', 'für alle '),
+        ('1', 'eine Teilgruppe'),
     ]
     alle_teil = models.CharField(max_length=1, choices=ALLE_TEIL_CHOICES, null=True, blank=True)
     PFLICHT_EMPF_CHOICES = [
