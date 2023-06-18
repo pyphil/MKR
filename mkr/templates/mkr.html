@@ -69,7 +69,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -89,7 +93,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -98,7 +102,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -106,7 +110,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -123,7 +127,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -134,7 +138,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -158,7 +162,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -178,7 +186,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -187,7 +195,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -195,7 +203,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -212,7 +220,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -223,7 +231,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -270,7 +278,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -290,7 +302,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -299,7 +311,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -307,7 +319,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -324,7 +336,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -335,7 +347,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -381,7 +393,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -401,7 +417,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -410,7 +426,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -418,7 +434,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -435,7 +451,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -446,7 +462,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -492,7 +508,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -512,7 +532,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -521,7 +541,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -529,7 +549,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -546,7 +566,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -557,7 +577,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -614,7 +634,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -634,7 +658,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -643,7 +667,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -651,7 +675,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -668,7 +692,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -679,7 +703,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -724,7 +748,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -744,7 +772,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -753,7 +781,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -761,7 +789,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -778,7 +806,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -789,7 +817,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -834,7 +862,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -854,7 +886,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -863,7 +895,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -871,7 +903,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -888,7 +920,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -899,7 +931,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -945,7 +977,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -965,7 +1001,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -974,7 +1010,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -982,7 +1018,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -999,7 +1035,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1010,7 +1046,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -1065,7 +1101,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -1085,7 +1125,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1094,7 +1134,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -1102,7 +1142,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1119,7 +1159,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1130,7 +1170,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -1175,7 +1215,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -1195,7 +1239,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1204,7 +1248,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -1212,7 +1256,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1229,7 +1273,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1240,7 +1284,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -1286,7 +1330,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -1306,7 +1354,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1315,7 +1363,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -1323,7 +1371,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1340,7 +1388,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1351,7 +1399,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -1397,7 +1445,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -1417,7 +1469,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1426,7 +1478,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -1434,7 +1486,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1451,7 +1503,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1462,7 +1514,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -1520,7 +1572,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -1540,7 +1596,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1549,7 +1605,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -1557,7 +1613,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1574,7 +1630,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1585,7 +1641,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -1630,7 +1686,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -1650,7 +1710,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1659,7 +1719,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -1667,7 +1727,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1684,7 +1744,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1695,7 +1755,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -1740,7 +1800,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -1760,7 +1824,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1769,7 +1833,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -1777,7 +1841,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1794,7 +1858,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1805,7 +1869,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -1851,7 +1915,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -1871,7 +1939,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1880,7 +1948,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -1888,7 +1956,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1905,7 +1973,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -1916,7 +1984,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -1972,7 +2040,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -1992,7 +2064,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2001,7 +2073,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -2009,7 +2081,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2026,7 +2098,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2037,7 +2109,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -2082,7 +2154,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -2102,7 +2178,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2111,7 +2187,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -2119,7 +2195,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2136,7 +2212,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2147,7 +2223,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -2192,7 +2268,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -2212,7 +2292,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2221,7 +2301,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -2229,7 +2309,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2246,7 +2326,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2257,7 +2337,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -2303,7 +2383,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -2323,7 +2407,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2332,7 +2416,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -2340,7 +2424,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2357,7 +2441,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2368,7 +2452,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -2423,7 +2507,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -2443,7 +2531,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2452,7 +2540,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -2460,7 +2548,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2477,7 +2565,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2488,7 +2576,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -2532,7 +2620,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -2552,7 +2644,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2561,7 +2653,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -2569,7 +2661,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2586,7 +2678,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2597,7 +2689,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -2642,7 +2734,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -2662,7 +2758,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2671,7 +2767,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -2679,7 +2775,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2696,7 +2792,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2707,7 +2803,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
@@ -2751,7 +2847,11 @@
                         <small>
                           <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
                           <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Technik:</b> {{ obj.technik }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          {% if user.is_authenticated %}
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                          {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
                             <thead>
@@ -2771,7 +2871,7 @@
                                   </td>
                               </tr>
                               <tr class="table-primary">
-                                <th><small><small>Teilgruppe</small></small></th>
+                                <th><small><small>ist für eine Teilgruppe</small></small></th>
                                 <td class="text-center">
                                   {% if obj.alle_teil == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2780,7 +2880,7 @@
                               </tr>
 
                               <tr class="table-success">
-                                <th><small><small>Pflicht</small></small></th>
+                                <th><small><small>ist Pflicht</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '0' %}
                                     <i class="bi bi-check-lg">
@@ -2788,7 +2888,7 @@
                                 </td>
                               </tr>
                               <tr class="table-success">
-                                <th><small><small>Empfehlung</small></small></th>
+                                <th><small><small>ist Empfehlung</small></small></th>
                                 <td class="text-center">
                                   {% if obj.pflicht_empf == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2805,7 +2905,7 @@
                                 </td>
                               </tr>
                               <tr class="table-warning">
-                                <th><small><small>Planung/Umsetzung</small></small></th>
+                                <th><small><small>wird geplant/erprobt</small></small></th>
                                 <td class="text-center">
                                   {% if obj.durchf_planung == '1' %}
                                     <i class="bi bi-check-lg">
@@ -2816,7 +2916,7 @@
                           </table>
                           {% if user.is_authenticated %}
                             {% if obj.download %}
-                              <p><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
+                              <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
                           {% endif %}
                         </small>
