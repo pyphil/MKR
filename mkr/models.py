@@ -54,24 +54,22 @@ class Kompetenzkarte(models.Model):
     ]
     jgst = models.CharField(max_length=2, choices=JGST_CHOICES)
     vorhaben = models.CharField(max_length=200)
-    info = models.CharField(max_length=400)
-    medienkompetenz = models.CharField(max_length=400)
-    vorwissen_sus = models.CharField(max_length=400)
-    technik = models.CharField(max_length=400)
-    medienkenntnisse_lul = models.CharField(max_length=400)
+    info = models.CharField(max_length=200)
+    medienkompetenz = models.CharField(max_length=200)
+    technik = models.CharField(max_length=200)
     ALLE_TEIL_CHOICES = [
-        ('0', 'ist für alle '),
-        ('1', 'ist für eine Teilgruppe'),
+        ('0', 'für alle '),
+        ('1', 'eine Teilgruppe'),
     ]
     alle_teil = models.CharField(max_length=1, choices=ALLE_TEIL_CHOICES)
     PFLICHT_EMPF_CHOICES = [
-        ('0', 'ist Pflicht'),
-        ('1', 'ist Empfehlung'),
+        ('0', 'Pflicht'),
+        ('1', 'Empfehlung'),
     ]
     pflicht_empf = models.CharField(max_length=1, choices=PFLICHT_EMPF_CHOICES)
     DURCHF_PLANUNG_CHOICES = [
         ('0', 'wird durchgeführt'),
-        ('1', 'wird geplant/erprobt'),
+        ('1', 'Planung/Umsetzung'),
     ]
     durchf_planung = models.CharField(max_length=1, choices=DURCHF_PLANUNG_CHOICES)
     download = models.FileField(null=True, blank=True, upload_to="downloads/")
