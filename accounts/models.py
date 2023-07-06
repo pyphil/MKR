@@ -7,7 +7,8 @@ class Profile(models.Model):
     uuid = models.CharField(max_length=32)
 
     def __str__(self):
-        return self.user
+        return self.user.username
+
 
 class AllowedEmail(models.Model):
     emails = models.TextField()
