@@ -17,7 +17,6 @@
           <form>
             {% csrf_token %}
             <button type="submit" name="cookiebutton" value="ok" class="btn btn-secondary" data-bs-dismiss="modal">OK</button>
-            <!-- <button type="button" class="btn btn-primary">Akzeptieren</button> -->
           </form>
         </div>
       </div>
@@ -25,6 +24,7 @@
   </div>
 
   <script>
+    // make modal appear on page load
     var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {})
     myModal.toggle()
   </script>
