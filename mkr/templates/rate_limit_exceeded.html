@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login Limit Exceeded</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
+{% extends 'base.html' %}  
+{% block content %}
+<div class="container mt-3 mb-5">
+    <div class="row justify-content-center">
+      <div class="col" style="max-width: 900px;">
+        <div class="card">
+            <div class="card-body">
+                <h2 style="color: red;">Login Limit überschritten</h2>
+                <p>Leider hast du die zulässige Anzahl an Loginversuchen pro Minute überschritten.</p>
+                <p>Versuche es in einer Minute noch einmal.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
 
-        h1 {
-            color: #FF0000;
-        }
-    </style>
-</head>
-<body>
-    <h1>Login Limit Exceeded</h1>
-    <p>Sorry, you have exceeded the maximum login attempts. Please try again in 10 Minutes.</p>
-</body>
-</html>
+{% endblock content %}
