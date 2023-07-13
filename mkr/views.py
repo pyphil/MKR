@@ -36,7 +36,7 @@ def karte_bearbeiten(request, id):
     obj = Kompetenzkarte.objects.get(id=id)
     if request.method == 'GET':
         f = KompetenzkarteForm(instance=obj, label_suffix="")
-        return render(request, 'karte.html', {'form': f})
+        return render(request, 'karte.html', {'form': f, 'edit': True})
     if request.method == 'POST':
         f = KompetenzkarteForm(request.POST, request.FILES, instance=obj)
         if f.is_valid():
