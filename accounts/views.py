@@ -12,7 +12,7 @@ def register(request):
     if request.method == "POST":
         form = RegisterUserForm(request.POST)
         allowed_emails = AllowedEmail.objects.get(school="genm")
-        if request.POST.get('email') in allowed_emails.emails:
+        if '@' in request.POST.get('email') and request.POST.get('email').casefold() in allowed_emails.emails.casefold():
             if form.is_valid():
                 user = form.save(commit=False)
                 user.is_active = False
