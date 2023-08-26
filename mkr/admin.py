@@ -5,11 +5,11 @@ from .models import Kompetenzkarte, Fach
 class KompetenzkarteCustomAdmin(admin.ModelAdmin):
     list_display = (
         'kategorie', 'fach', 'jgst', 'vorhaben', 'info', 'medienkompetenz',
-        'technik', 'alle_teil', 'pflicht_empf', 'durchf_planung',
+        'technik', 'alle_teil', 'pflicht_empf', 'durchf_planung', 'user',
         )
     list_filter = (
         'kategorie', 'fach', 'jgst', 'vorhaben', 'info', 'medienkompetenz',
-        'technik', 'alle_teil', 'pflicht_empf', 'durchf_planung',
+        'technik', 'alle_teil', 'pflicht_empf', 'durchf_planung', 'user',
         )
     readonly_fields = ('created', 'changed',)
 
