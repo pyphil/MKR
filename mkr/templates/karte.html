@@ -6,7 +6,14 @@
     <div class="col" style="max-width: 900px;">
       <div class="card">
         <div class="card-header">
-          <strong>Methodenkompetenzrahmen - Karte {% if edit %}bearbeiten{% else %}erstellen{% endif %}</strong>
+          <strong>Methodenkompetenzrahmen - Karte {% if edit %}bearbeiten{% else %}erstellen{% endif %}</strong><br>
+          {% if form.instance.created %}
+            <small>Erstellt durch {{form.instance.user}}, {{form.instance.created}}
+            {% if form.instance.created %}
+              <br>
+              Geändert durch {{form.instance.last_user}}, {{form.instance.changed}}</small>
+            {% endif %}
+          {% endif %}
         </div>
         <div class="card-body">
             <form method="POST" enctype="multipart/form-data">
