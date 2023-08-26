@@ -11,7 +11,7 @@ class KompetenzkarteCustomAdmin(admin.ModelAdmin):
         'kategorie', 'fach', 'jgst', 'vorhaben', 'info', 'medienkompetenz',
         'technik', 'alle_teil', 'pflicht_empf', 'durchf_planung',
         )
-
+    readonly_fields = ('created', 'changed',)
 
 class FachCustomAdmin(admin.ModelAdmin):
     list_display = ('id', 'fach')

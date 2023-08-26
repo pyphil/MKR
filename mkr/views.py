@@ -27,7 +27,9 @@ def karte(request):
     if request.method == 'POST':
         f = KompetenzkarteForm(request.POST, request.FILES)
         if f.is_valid():
-            f.save()
+            karte = f.save(commit=False)
+            karte.user = request.user
+            karte.save()
             return redirect('home')
 
 
@@ -40,7 +42,9 @@ def karte_bearbeiten(request, id):
     if request.method == 'POST':
         f = KompetenzkarteForm(request.POST, request.FILES, instance=obj)
         if f.is_valid():
-            f.save()
+            karte = f.save(commit=False)
+            karte.last_user = request.user
+            karte.save()
             return redirect('home')
 
 
