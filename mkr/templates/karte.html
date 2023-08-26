@@ -9,7 +9,7 @@
           <strong>Methodenkompetenzrahmen - Karte {% if edit %}bearbeiten{% else %}erstellen{% endif %}</strong><br>
           {% if form.instance.created %}
             <small>Erstellt durch {{form.instance.user}}, {{form.instance.created}}
-            {% if form.instance.created %}
+            {% if form.instance.last_user %}
               <br>
               Geändert durch {{form.instance.last_user}}, {{form.instance.changed}}</small>
             {% endif %}

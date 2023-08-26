@@ -143,7 +143,9 @@
                           <hr>
                           <small>
                             Erstellt: {{ obj.user }}, {{ obj.created }}<br>
-                            Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
                           </small>
                           {% endif %}
                         </small>
@@ -238,6 +240,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -354,6 +363,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -469,6 +485,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -584,6 +607,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -710,6 +740,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -824,6 +861,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -938,6 +982,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1053,6 +1104,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1177,6 +1235,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1291,6 +1356,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1406,6 +1478,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1521,6 +1600,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1648,6 +1734,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1762,6 +1855,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1876,6 +1976,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1991,6 +2098,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2116,6 +2230,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2230,6 +2351,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2344,6 +2472,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2459,6 +2594,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2583,6 +2725,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2696,6 +2845,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2810,6 +2966,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2923,6 +3086,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
