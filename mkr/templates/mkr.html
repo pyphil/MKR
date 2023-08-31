@@ -67,12 +67,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -167,12 +167,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -290,12 +290,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -412,12 +412,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -534,12 +534,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -667,12 +667,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -788,12 +788,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -909,12 +909,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1031,12 +1031,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1162,12 +1162,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1283,12 +1283,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1405,12 +1405,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1527,12 +1527,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1661,12 +1661,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1782,12 +1782,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1903,12 +1903,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2025,12 +2025,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2157,12 +2157,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2278,12 +2278,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2399,12 +2399,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2521,12 +2521,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2652,12 +2652,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2772,12 +2772,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2893,12 +2893,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -3013,12 +3013,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
