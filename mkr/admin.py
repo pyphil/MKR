@@ -13,6 +13,7 @@ class KompetenzkarteCustomAdmin(admin.ModelAdmin):
         )
     readonly_fields = ('created', 'changed',)
 
+
 class FachCustomAdmin(admin.ModelAdmin):
     list_display = ('id', 'fach')
     ordering = ['fach']
