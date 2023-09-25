@@ -42,6 +42,9 @@
                 {% if request.path != "/karte/" %}
                   <a class="btn btn-success ms-3 shadow" href="{% url 'karte' %}"><i class="bi bi-card-heading"></i> Karte erstellen</a>
                 {% endif %}
+                {% if user.is_staff %}
+                  <a class="btn btn-warning ms-3 shadow" href="/admin/">Django-Admin</a>
+                {% endif %}
               {% else %}
                 <a class="btn btn-secondary shadow" href="/accounts/login/?next={{ request.get_full_path|urlencode }}"><i class="bi bi-person-circle"></i> Login</a>
                 <a class="btn btn-secondary shadow ms-3" href="/accounts/register/"><i class="bi bi-caret-right-fill"></i> Registrieren</a>

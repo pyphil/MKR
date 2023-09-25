@@ -37,15 +37,15 @@
       <div class="accordion" id="accordion_1">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse1_1" aria-expanded="true" aria-controls="collapse1_1"
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse1_1" aria-expanded="false" aria-controls="collapse1_1"
               style="background-color: #00964119; color: #009640">
               <b>1.1 Medienausstattung
               (Hardware)
               </b>
             </button>
           </h2>
-          <div id="collapse1_1" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          <div id="collapse1_1" class="accordion-collapse collapse" aria-labelledby="headingOne"
             data-bs-parent="#accordion_1">
             <div class="accordion-body px-2">
               <div class="alert alert-secondary shadow">
@@ -67,12 +67,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -140,6 +140,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -160,12 +167,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -233,6 +240,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -276,12 +290,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -349,6 +363,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -391,12 +412,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -464,6 +485,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -506,12 +534,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -579,6 +607,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -604,13 +639,13 @@
       <div class="accordion" id="accordion_2">
         <div class="accordion-item">
           <h2 class="accordion-header" id="heading1_1">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse2_1" aria-expanded="true" aria-controls="collapse2_1"
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse2_1" aria-expanded="false" aria-controls="collapse2_1"
               style="background-color: #009fe316; color: #009fe3">
               <b>2.1 Informationsrecherche</b>
             </button>
           </h2>
-          <div id="collapse2_1" class="accordion-collapse collapse show" aria-labelledby="heading2_1"
+          <div id="collapse2_1" class="accordion-collapse collapse" aria-labelledby="heading2_1"
             data-bs-parent="#accordion_2">
             <div class="accordion-body px-2">
               <div class="alert alert-secondary shadow">
@@ -632,12 +667,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -705,6 +740,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -746,12 +788,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -819,6 +861,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -860,12 +909,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -933,6 +982,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -958,7 +1014,7 @@
               <div class="alert alert-secondary shadow">
                 <small>
                   Unangemessene und gefährdende Medieninhalte erkennen und hinsichtlich rechtlicher Grundlagen
-                  sowie gesellschaftlicher Normen und Werte einschätzen; Jugendund Verbraucherschutz kennen
+                  sowie gesellschaftlicher Normen und Werte einschätzen; Jugend und Verbraucherschutz kennen
                   und Hilfs- und Unterstützungsstrukturen nutzen
                 </small>
               </div>
@@ -975,12 +1031,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1048,6 +1104,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1071,13 +1134,13 @@
       <div class="accordion" id="accordion_3">
         <div class="accordion-item">
           <h2 class="accordion-header" id="heading3_1">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse3_1" aria-expanded="true" aria-controls="collapse3_1"
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse3_1" aria-expanded="false" aria-controls="collapse3_1"
               style="background-color: #19499d29; color: #19499de6">
               <b>3.1 Kommunikations- und Kooperationsprozesse</b>
             </button>
           </h2>
-          <div id="collapse3_1" class="accordion-collapse collapse show" aria-labelledby="heading3_1"
+          <div id="collapse3_1" class="accordion-collapse collapse" aria-labelledby="heading3_1"
             data-bs-parent="#accordion_3">
             <div class="accordion-body px-2">
               <div class="alert alert-secondary shadow">
@@ -1099,12 +1162,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1172,6 +1235,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1213,12 +1283,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1286,6 +1356,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1328,12 +1405,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1401,6 +1478,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1443,12 +1527,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1516,6 +1600,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1541,13 +1632,13 @@
       <div class="accordion" id="accordion_4">
         <div class="accordion-item">
           <h2 class="accordion-header" id="heading4_1">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse4_1" aria-expanded="true" aria-controls="collapse4_1"
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse4_1" aria-expanded="false" aria-controls="collapse4_1"
               style="background-color: #ff00b317; color: #ff00b3">
               <b>4.1 Medienproduktion und Präsentation</b>
             </button>
           </h2>
-          <div id="collapse4_1" class="accordion-collapse collapse show" aria-labelledby="heading4_1"
+          <div id="collapse4_1" class="accordion-collapse collapse" aria-labelledby="heading4_1"
             data-bs-parent="#accordion_4">
             <div class="accordion-body px-2">
               <div class="alert alert-secondary shadow">
@@ -1570,12 +1661,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1643,6 +1734,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1684,12 +1782,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1757,6 +1855,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1798,12 +1903,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1871,6 +1976,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -1913,12 +2025,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -1986,6 +2098,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2010,13 +2129,13 @@
         <div class="accordion" id="accordion_5">
           <div class="accordion-item">
             <h2 class="accordion-header" id="heading5_1">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse5_1" aria-expanded="true" aria-controls="collapse5_1"
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse5_1" aria-expanded="false" aria-controls="collapse5_1"
                 style="background-color: #ff000026; color: #ff0000">
                 <b>5.1 Medienanalyse</b>
               </button>
             </h2>
-            <div id="collapse5_1" class="accordion-collapse collapse show"
+            <div id="collapse5_1" class="accordion-collapse collapse"
               aria-labelledby="heading5_1" data-bs-parent="#accordion_5">
               <div class="accordion-body px-2">
                 <div class="alert alert-secondary shadow">
@@ -2038,12 +2157,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2111,6 +2230,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2152,12 +2278,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2225,6 +2351,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2266,12 +2399,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2339,6 +2472,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2381,12 +2521,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2454,6 +2594,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2478,13 +2625,13 @@
         <div class="accordion" id="accordion_6">
           <div class="accordion-item">
             <h2 class="accordion-header" id="heading6_1">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse6_1" aria-expanded="true" aria-controls="collapse6_1"
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse6_1" aria-expanded="false" aria-controls="collapse6_1"
                 style="background-color: #ffc2041a; color: #fab72c">
                 <b>6.1 Prinzipien der digitalen Welt</b>
               </button>
             </h2>
-            <div id="collapse6_1" class="accordion-collapse collapse show"
+            <div id="collapse6_1" class="accordion-collapse collapse"
               aria-labelledby="heading6_1" data-bs-parent="#accordion_6">
               <div class="accordion-body px-2">
                 <div class="alert alert-secondary shadow">
@@ -2505,12 +2652,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2578,6 +2725,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2618,12 +2772,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2691,6 +2845,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2732,12 +2893,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2805,6 +2966,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
@@ -2845,12 +3013,12 @@
                       <small>
                         <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
                         <small>
-                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info }}</p>
-                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz }}</p>
-                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus }}</p>
-                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik }}</p>
+                          <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlizetrunc:40 }}</p>
+                          <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlizetrunc:40 }}</p>
+                          <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlizetrunc:40 }}</p>
+                          <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlizetrunc:40 }}</p>
                           {% if user.is_authenticated %}
-                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul }}</p>
+                            <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlizetrunc:40 }}</p>
                           {% endif %}
 
                           <table class="table table-bordered table-sm mb-0">
@@ -2918,6 +3086,13 @@
                             {% if obj.download %}
                               <p class="mt-3 mb-0"><b>Anhang:</b> <a href="{% url 'download' obj.download|cut:'downloads/' %}">{{ obj.download|cut:'downloads/' }}</a></p>
                             {% endif %}
+                          <hr>
+                          <small>
+                            Erstellt: {{ obj.user }}, {{ obj.created }}<br>
+                            {% if obj.last_user %}
+                              Geändert: {{ obj.last_user }}, {{ obj.changed }}
+                            {% endif  %}
+                          </small>
                           {% endif %}
                         </small>
                       </small>
