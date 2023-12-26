@@ -52,6 +52,7 @@ class Kompetenzkarte(models.Model):
         ('11', 'Jgst. EF'),
         ('12', 'Jgst. Q1'),
         ('13', 'Jgst. Q2'),
+        ('JG', 'mehrere Jgst.'),
     ]
     jgst = models.CharField(max_length=2, choices=JGST_CHOICES)
     vorhaben = models.CharField(max_length=200)
