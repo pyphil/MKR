@@ -45,9 +45,9 @@ def home(request):
     #     mkr_objects = Kompetenzkarte.objects.all()
 
     if request.GET.get('switch') == "on":
-        switch = "on"
+        switch = "off"
     else:
-        switch = None
+        switch = "on"
 
     return render(request, 'mkr.html', {
         'mkr_objects': mkr_objects,
