@@ -12,7 +12,7 @@ class LoginRateLimiterMiddleware:
             # Rate limit per IP
             ip_address = request.META.get('REMOTE_ADDR')
             cache_key_ip = f'login_rate_limit_ip:{ip_address}'
-            rate_limit_ip = 60 # Maximum allowed login attempts per IP per minute
+            rate_limit_ip = 60  # Maximum allowed login attempts per IP per minute
             current_attempts_ip = cache.get(cache_key_ip, 0)
 
             # Rate limit per User
