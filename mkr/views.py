@@ -99,5 +99,13 @@ def download(request, filename):
     )
 
 
+def lehrplanansicht(request):
+    mkr_objects = Kompetenzkarte.objects.all()
+    return render(request, 'lehrplanansicht.html', {
+        'mkr_objects': mkr_objects,
+        }
+    )
+
+
 def rate_limit_exceeded_view(request):
     return render(request, 'rate_limit_exceeded.html')

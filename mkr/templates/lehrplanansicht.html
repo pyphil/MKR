@@ -1,0 +1,115 @@
+{% extends 'base.html' %}  
+{% block content %}
+
+<style>
+  table {
+    border-collapse: collapse;
+    width: 80vw;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px;
+  }
+</style>
+
+<form>
+  <div class="row align-items-center mb-3">
+    <div class="col-auto">
+      <select name="fach_filter" class="form-select form-select-sm" style="width: 250px" onchange="this.form.submit()">
+        <option value=0 selected>Alle Fächer</option>
+        {% for fach in faecher %}
+          {% if fach.fach == selected_fach %}
+            <option value="{{ fach }}" selected>{{ fach }}</option>
+          {% else %}
+            <option value="{{ fach }}">{{ fach }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+</form>
+
+  <div class="card mb-3 shadow-lg px-5 py-5 user-select-all">
+    {% for obj in mkr_objects %}
+      <h3>Kategorie: {{ obj.get_kategorie_display }}</h3>
+      <h4>{{ obj.fach }} • {{ obj.get_jgst_display }}</h4>
+      <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+      <p><b>Jahrgangsstufe:</b> {{ obj.get_jgst_display }}</p>
+      <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlize }}</p>
+      <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlize }}</p>
+      <p><b>Benötigtes Vorwissen der Schüler:innen:</b> {{ obj.vorwissen_sus|urlize }}</p>
+      <p><b>Benötigte Technik/Software:</b> {{ obj.technik|urlize }}</p>
+      {% if user.is_authenticated %}
+        <p><b>Vorausgesetzte Medienkenntnisse der Lehrer:innen:</b> {{ obj.medienkenntnisse_lul|urlize }}</p>
+      {% endif %}
+
+      <table>
+        <thead>
+          <tr>
+            <th><small>Das Vorhaben...</small></th>
+            <th> </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr style="background-color: #e6e6e6;">
+            <th><small><small>ist für alle</small></small></th>
+            <td class="text-center">
+              {% if obj.alle_teil == '0' %}
+                x
+              {% endif %}
+              </td>
+          </tr>
+          <tr style="background-color: #e6e6e6;">
+            <th><small><small>ist für eine Teilgruppe</small></small></th>
+            <td class="text-center">
+              {% if obj.alle_teil == '1' %}
+                x
+              {% endif %}
+            </td>
+          </tr>
+
+          <tr style="background-color: #cfcfcf;">
+            <th><small><small>ist Pflicht</small></small></th>
+            <td class="text-center">
+              {% if obj.pflicht_empf == '0' %}
+                x
+              {% endif %}
+            </td>
+          </tr>
+          <tr style="background-color: #cfcfcf;">
+            <th><small><small>ist Empfehlung</small></small></th>
+            <td class="text-center">
+              {% if obj.pflicht_empf == '1' %}
+                x
+              {% endif %}
+            </td>
+          </tr>
+
+          <tr style="background-color: #e6e6e6;">
+            <th><small><small>wird durchgeführt</small></small></th>
+            <td class="text-center">
+              {% if obj.durchf_planung == '0' %}
+               x
+              {% endif %}
+            </td>
+          </tr>
+          <tr style="background-color: #e6e6e6;">
+            <th><small><small>wird geplant/erprobt</small></small></th>
+            <td class="text-center">
+              {% if obj.durchf_planung == '1' %}
+               x
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <hr>
+      <br>
+    {% endfor %}
+  </div>
+
+{% endblock content %}
