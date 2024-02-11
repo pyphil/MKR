@@ -2,7 +2,11 @@
 <html lang="de">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=2000">
+    {% if request.path == "/" %}
+      <meta name="viewport" content="width=2000">
+    {% else %}
+      <meta name="viewport" content="initial-scale:1">
+    {% endif %}
     <title>MKR GENM</title>
 
     {% load static %}
