@@ -84,4 +84,4 @@ class Kompetenzkarte(models.Model):
 
     class Meta:
         verbose_name_plural = 'Kompetenzkarten'
-        ordering = ['fach', 'jgst']
+        ordering = ['kategorie', 'fach', 'jgst']
