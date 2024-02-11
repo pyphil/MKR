@@ -5,7 +5,7 @@
     {% if request.path == "/" %}
       <meta name="viewport" content="width=2000">
     {% else %}
-      <meta name="viewport" content="initial-scale:1">
+      <meta name="viewport" content="initial-scale=1.0">
     {% endif %}
     <title>MKR GENM</title>
 
@@ -52,6 +52,12 @@
               {% else %}
                 <a class="btn btn-secondary shadow" href="/accounts/login/?next={{ request.get_full_path|urlencode }}"><i class="bi bi-person-circle"></i> Login</a>
                 <a class="btn btn-secondary shadow ms-3" href="/accounts/register/"><i class="bi bi-caret-right-fill"></i> Registrieren</a>
+                {% endif %}
+              {% if request.path != "/lehrplanansicht" %}
+                <a class="btn btn-primary ms-3 shadow" href="{% url 'lehrplanansicht' %}"><i class="bi bi-files"></i> Lehrplanansicht</a>
+              {% endif %}
+              {% if request.path != "/" %}
+                <a class="btn btn-primary ms-3 shadow" href="{% url 'home' %}"><i class="bi bi-calendar3"></i> MKR</a>                
               {% endif %}
             </div>
           </div>

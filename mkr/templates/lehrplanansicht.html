@@ -4,7 +4,7 @@
 <style>
   table {
     border-collapse: collapse;
-    width: 80vw;
+    width: 30vw;
   }
   
   td, th {
@@ -12,12 +12,26 @@
     text-align: left;
     padding: 5px;
   }
+  p {
+    margin-bottom: 5px;
+  }
 </style>
+
+<h2>Lehrplanansicht</h2>
+
+<div class="alert alert-info">
+  Hier können alle Karten gefiltert nach Fach in einer Druckansicht für den internen Lehrplan kopiert werden:<br>
+  1. Fach auswählen.<br>
+  2. In den Text klicken, um automatisch alles zu markieren.<br>
+  3. Text kopieren und im Word-Dokument einfügen.
+  </ol>
+</div>
 
 <form>
   <div class="row align-items-center mb-3">
     <div class="col-auto">
-      <select name="fach_filter" class="form-select form-select-sm" style="width: 250px" onchange="this.form.submit()">
+      <label for="fach_filter_select">Filter nach Fach:</label>
+      <select name="fach_filter" id="fach_filter_select" class="form-select form-select-sm" style="width: 250px" onchange="this.form.submit()">
         <option value=0 selected>Alle Fächer</option>
         {% for fach in faecher %}
           {% if fach.fach == selected_fach %}
@@ -34,8 +48,7 @@
   <div class="card mb-3 shadow-lg px-5 py-5 user-select-all">
     {% for obj in mkr_objects %}
       <h3>Kategorie: {{ obj.get_kategorie_display }}</h3>
-      <h4>{{ obj.fach }} • {{ obj.get_jgst_display }}</h4>
-      <p><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</p>
+      <h4><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</h4>
       <p><b>Jahrgangsstufe:</b> {{ obj.get_jgst_display }}</p>
       <p><b>Detaillierte Informationen befinden sich hier:</b> {{ obj.info|urlize }}</p>
       <p><b>Medienkompetenz:</b> {{ obj.medienkompetenz|urlize }}</p>
@@ -106,9 +119,7 @@
           </tr>
         </tbody>
       </table>
-      <br>
-      <hr>
-      <br>
+      <hr mx-2>
     {% endfor %}
   </div>
 

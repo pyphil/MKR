@@ -98,11 +98,24 @@ def download(request, filename):
         filename=filename
     )
 
-
+@login_required
 def lehrplanansicht(request):
     mkr_objects = Kompetenzkarte.objects.all()
+    
+    if request.GET.get('fach_filter') and request.GET.get('fach_filter') != '0':
+        mkr_objects = mkr_objects.filter(fach__fach=request.GET.get('fach_filter'))
+        selected_fach = request.GET.get('fach_filter')
+    else:
+        selected_fach = None
+    # if request.GET.get('selected_fach'):
+    #     selected_fach = request.GET.get('selected_fach')
+    # else:
+    #     selected_fach = ""
+
     return render(request, 'lehrplanansicht.html', {
         'mkr_objects': mkr_objects,
+        'faecher': Fach.objects.all(),
+        'selected_fach': selected_fach,
         }
     )
 
