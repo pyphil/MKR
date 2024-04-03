@@ -15,16 +15,25 @@
   p {
     margin-bottom: 5px;
   }
+  .colored-line {
+    border-collapse: collapse;
+  }
+  .colored-line_1 td {
+    padding: 10px;
+    border-left: 5px solid #ff000078;
+  }
+  .colored_heading_1 {
+    background-color: #ff000078;
+  }
 </style>
 
 <h2>Lehrplanansicht</h2>
 
 <div class="alert alert-info">
-  Hier können alle Karten gefiltert nach Fach in einer Druckansicht für den internen Lehrplan kopiert werden:<br>
+  Hier können alle Karten, gefiltert nach Fach, in einer Druckansicht für den internen Lehrplan kopiert werden:<br>
   1. Fach auswählen.<br>
   2. In den Text klicken, um automatisch alles zu markieren.<br>
   3. Text kopieren und im Word-Dokument einfügen.
-  </ol>
 </div>
 
 <form>
@@ -47,6 +56,12 @@
 
   <div class="card mb-3 shadow-lg px-5 py-5 user-select-all">
     {% for obj in mkr_objects %}
+      {% if obj.kategorie|slice:"1" == "1" %}
+        IT IS 1
+      {% else %}
+        NOT 1
+      {% endif %}
+
       <h3>Kategorie: {{ obj.get_kategorie_display }}</h3>
       <h4><b>Unterrichtsvorhaben:</b> {{ obj.vorhaben }}</h4>
       <p><b>Jahrgangsstufe:</b> {{ obj.get_jgst_display }}</p>
