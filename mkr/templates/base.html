@@ -31,6 +31,9 @@
     <nav class="navbar navbar-expand navbar-light bg-light mt-3 mb-3 shadow">
       <div class="container-fluid">
         <div class="d-flex">
+          {% if logo %}
+            <img src="{{ logo }}" width="40" class="ms-3">
+          {% endif %}
           <a class="navbar-brand mt-2 me-5" href="/"><h4>Medienkompetenzrahmen der GeNM</h4></a>
             <button class="navbar-toggler me-4" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>

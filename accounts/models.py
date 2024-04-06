@@ -26,3 +26,7 @@ class Config(models.Model):
 
     def __str__(self):
         return self.setting
+
+
+class LogoImage(models.Model):
+    image = models.FileField(null=True, blank=True, upload_to="images/")

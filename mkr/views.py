@@ -98,6 +98,15 @@ def download(request, filename):
         filename=filename
     )
 
+
+def get_image(request, filename):
+    return FileResponse(
+        open(settings.MEDIA_ROOT + '/images/' + filename, 'rb'),
+        as_attachment=False,
+        filename=filename
+    )
+
+
 @login_required
 def lehrplanansicht(request):
     mkr_objects = Kompetenzkarte.objects.all()
