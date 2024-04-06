@@ -94,9 +94,10 @@ def karte_bearbeiten(request, id):
 def download(request, filename):
     return FileResponse(
         open(settings.MEDIA_ROOT + '/downloads/' + filename, 'rb'),
-        as_attachment=True,
+        as_attachment=False,
         filename=filename
     )
+
 
 @login_required
 def lehrplanansicht(request):
